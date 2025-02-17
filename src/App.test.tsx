@@ -17,7 +17,7 @@ describe('The Application', () => {
 
 	it('renders menu list', () => {
 		render(<PizzaShopApp />)
-		const menuList = screen.getByRole('list')
+		const menuList = screen.getByTestId('menu-list')
 		const menuItems = within(menuList).getAllByRole('listitem')
 
 		expect(menuItems.length).toEqual(8)
@@ -44,14 +44,14 @@ describe('The Application', () => {
 		expect(placeOrderButton).toBeDisabled()
 	})
 
-	it('adds menu item to shopping cart', () => {
+	it('adds menu item to shopping cart', async () => {
 		render(<PizzaShopApp />)
 
-		const menuList = screen.getByRole('list')
+		const menuList = screen.getByTestId('menu-list')
 		const menuItems = within(menuList).getAllByRole('listitem')
 		const addButton = within(menuItems[0]).getByRole('button')
 
-		userEvent.click(addButton)
+		await userEvent.click(addButton)
 
 		const shoppingCartContainer = screen.getByTestId('shopping-cart')
 		const placeOrderButton = within(shoppingCartContainer).getByRole('button')
