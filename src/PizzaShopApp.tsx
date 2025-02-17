@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 
 const pizzas = [
@@ -12,15 +13,29 @@ const pizzas = [
 ]
 
 export default function PizzaShopApp() {
+	const [cartItems, setCartItems] = useState<string[]>([])
+
+	const addItem = (item: string) => {
+		setCartItems([...cartItems, item])
+	}
+
 	return (
 		<>
 			<h1>The Code Oven</h1>
 			<ol>
 				{pizzas.map(x => (
-					<li>{x}</li>
+					<li>
+						{x}
+						<button onClick={() => addItem(x)}>Add to Cart</button>
+					</li>
 				))}
 			</ol>
 			<div data-testid='shopping-cart'>
+				<ol>
+					{cartItems.map(x => (
+						<li>{x}</li>
+					))}
+				</ol>
 				<button disabled>Place My Order</button>
 			</div>
 		</>

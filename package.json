@@ -10,6 +10,7 @@
 	"dependencies": {
 		"@testing-library/dom": "^10.4.0",
 		"@testing-library/react": "^16.2.0",
+		"@testing-library/user-event": "^14.6.1",
 		"dom-testing-library": "^5.0.0",
 		"happy-dom": "^17.1.0",
 		"react": "^19.0.0",
