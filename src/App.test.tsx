@@ -1,7 +1,11 @@
-import { render, screen, within } from '@testing-library/react'
+import { render, screen, within, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom/vitest'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, beforeEach } from 'vitest'
 import PizzaShopApp from './PizzaShopApp'
+
+beforeEach(() => {
+	cleanup()
+})
 
 describe('The Application', () => {
 	it('renders application heading', () => {

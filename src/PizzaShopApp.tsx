@@ -5,14 +5,9 @@ export default function PizzaShopApp() {
 		<>
 			<h1>The Code Oven</h1>
 			<ol>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
+				{new Array(8).fill(0).map(x => (
+					<li>{x}</li>
+				))}
 			</ol>
 		</>
 	)
