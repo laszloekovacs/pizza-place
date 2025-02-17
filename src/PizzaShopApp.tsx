@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import './App.css'
 
-export default function PizzaShopApp() {
-	const pizzas = [
-		'Margherita Pizza',
-		'Pepperoni Pizza',
-		'Veggie Supreme Pizza',
-		'Chicken BBQ Pizza',
-		'Spicy Meat Feast Pizza',
-		'Pasta Primavera',
-		'Caesar Salad',
-		'Chocolate Lava Cake'
-	]
+const pizzas = [
+	'Margherita Pizza',
+	'Pepperoni Pizza',
+	'Veggie Supreme Pizza',
+	'Chicken BBQ Pizza',
+	'Spicy Meat Feast Pizza',
+	'Pasta Primavera',
+	'Caesar Salad',
+	'Chocolate Lava Cake'
+]
 
+export default function PizzaShopApp() {
 	const [cartItems, setCartItems] = useState<string[]>([])
 
 	const addItem = (item: string) => {
@@ -36,7 +36,7 @@ export default function PizzaShopApp() {
 						<li>{x}</li>
 					))}
 				</ol>
-				<button disabled>Place My Order</button>
+				<button disabled={cartItems.length === 0}>Place My Order</button>
 			</div>
 		</>
 	)
