@@ -1,11 +1,7 @@
 import { render, screen, within } from '@testing-library/react'
 import '@testing-library/jest-dom/vitest'
 import { describe, expect, it } from 'vitest'
-import App from './App'
-
-function PizzaShopApp() {
-	return <>The Code Oven</>
-}
+import PizzaShopApp from './PizzaShopApp'
 
 describe('The Application', () => {
 	it('renders application heading', () => {
