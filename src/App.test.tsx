@@ -20,5 +20,26 @@ describe('The Application', () => {
 		const menuItems = within(menuList).getAllByRole('listitem')
 
 		expect(menuItems.length).toEqual(8)
+
+		expect(
+			within(menuItems[0]).getByText('Margherita Pizza')
+		).toBeInTheDocument()
+		expect(
+			within(menuItems[1]).getByText('Pepperoni Pizza')
+		).toBeInTheDocument()
+		expect(
+			within(menuItems[2]).getByText('Veggie Supreme Pizza')
+		).toBeInTheDocument()
+	})
+
+	it('renders a shopping cart', () => {
+		render(<PizzaShopApp />)
+
+		const shoppingCartContainer = screen.getByTestId('shopping-cart')
+		const placeOrderButton = within(shoppingCartContainer).getByRole('button')
+
+		expect(placeOrderButton).toBeInTheDocument()
+		expect(placeOrderButton).toHaveTextContent('Place My Order')
+		expect(placeOrderButton).toBeDisabled()
 	})
 })
