@@ -59,6 +59,6 @@ describe('The Application', () => {
 		expect(
 			within(shoppingCartContainer).getByText('Margherita Pizza')
 		).toBeInTheDocument()
-		expect(placeOrderButton).not.toBeEnabled()
+		expect(placeOrderButton).toBeEnabled()
 	})
 })

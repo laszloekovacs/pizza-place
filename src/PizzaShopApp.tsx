@@ -22,22 +22,40 @@ export default function PizzaShopApp() {
 	return (
 		<>
 			<h1>The Code Oven</h1>
-			<ol data-testid='menu-list'>
-				{pizzas.map(x => (
-					<li>
-						{x}
-						<button onClick={() => addItem(x)}>Add to Cart</button>
+			<MenuList onAddMenuItem={addItem} />
+			<ShoppingCart cartItems={cartItems} />
+		</>
+	)
+}
+
+const MenuList = ({
+	onAddMenuItem
+}: {
+	onAddMenuItem: (item: string) => void
+}) => {
+	return (
+		<div data-testid='menu-list'>
+			<ol>
+				{pizzas.map(item => (
+					<li key={item}>
+						{item}
+						<button onClick={() => onAddMenuItem(item)}>Add</button>
 					</li>
 				))}
 			</ol>
-			<div data-testid='shopping-cart'>
-				<ol>
-					{cartItems.map(x => (
-						<li>{x}</li>
-					))}
-				</ol>
-				<button disabled={cartItems.length === 0}>Place My Order</button>
-			</div>
-		</>
+		</div>
+	)
+}
+
+const ShoppingCart = ({ cartItems }: { cartItems: string[] }) => {
+	return (
+		<div data-testid='shopping-cart'>
+			<ol>
+				{cartItems.map(item => (
+					<li key={item}>{item}</li>
+				))}
+			</ol>
+			<button disabled={cartItems.length === 0}>Place My Order</button>
+		</div>
 	)
 }
